@@ -1895,18 +1895,34 @@ bool WorkManager::MatchCombinations(csArray<psItem*> itemArray, CombinationConst
         // Setup two arrays for comparison
         csArray<psItem*> itemsMatched;
         csArray<psItem*> itemsLeft = itemArray;
+		int numberInArray = -1;
+		// find where in the input we can find the item to match combination item 0. We need this for the next check.
+		for (size_t i = 0; i < itemArray.GetSize(); i++)
+		{
+			if (itemArray[i]->GetCurrentStats()->GetUID() == current->combinations[0]->GetItemId())
+			{
+				numberInArray = i;
+				break;
+			}
+		}
+		// if not found, we have no match anyway.
+		if (numberInArray == -1)
+		{
+			return false;
+		}
 
         // should be unable to get empty combinations, and this function should not be called without any items being present either, so using [0] "should" be safe.
         // set up the multiplier if minqty=maxqty=0.
         if (current->combinations[0]->GetMinQty() == 0 && current->combinations[0]->GetMinQty() == current->combinations[0]->GetMaxQty())
         {
-            multiplier = itemArray[0]->GetStackCount();
+            multiplier = itemArray[numberInArray]->GetStackCount();
         }
         // set up the multiplier if  result = 0 and min/max qty are identical and stack count is an exact multiple of min qty (all input stacks need to be in the same multiple, but we'll check that later.
+		// input order may vary, we cannot be sure combinations[0] equals itemArray[0].
         else if (current->combinations[0]->GetResultQty() == 0 && current->combinations[0]->GetMinQty() == current->combinations[0]->GetMaxQty() &&
-            itemArray[0]->GetStackCount() % current->combinations[0]->GetMinQty() == 0)
+            itemArray[numberInArray]->GetStackCount() % current->combinations[0]->GetMinQty() == 0)
         {
-            multiplier = itemArray[0]->GetStackCount() / current->combinations[0]->GetMinQty();
+            multiplier = itemArray[numberInArray]->GetStackCount() / current->combinations[0]->GetMinQty();
         }
         
 
