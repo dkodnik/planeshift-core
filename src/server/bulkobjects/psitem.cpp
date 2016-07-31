@@ -1691,8 +1691,11 @@ void psItem::CombineStack(psItem* &stackme)
         SetGuardingCharacterID(stackme->GetGuardingCharacterID());
 
     // Average charges
-    int newCharges = (GetCharges()*GetStackCount() + stackme->GetCharges()*stackme->GetStackCount())/newStackCount;
-    SetCharges(newCharges);
+    int newCharges = 0;
+    if (newStackCount>0) {
+        newCharges = (GetCharges()*GetStackCount() + stackme->GetCharges()*stackme->GetStackCount())/newStackCount;
+        SetCharges(newCharges);
+    }
 
     psserver->GetCacheManager()->RemoveInstance(stackme);
 
