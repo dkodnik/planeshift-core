@@ -3592,7 +3592,7 @@ void WorkManager::HandleWorkEvent(psWorkGameEvent* workEvent)
 
         // Check to see if player walked away from non-auto container
         gemObject* target = workItem->GetGemObject();
-        if(worker->RangeTo(target, true) > RANGE_TO_USE)
+        if(worker->RangeTo(target, true, true) > RANGE_TO_USE)
         {
             psserver->SendSystemOK(clientNum,"You interrupted your work when you moved away.");
             owner->SetTradeWork(NULL);
