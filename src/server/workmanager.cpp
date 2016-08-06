@@ -1369,6 +1369,11 @@ bool WorkManager::CombineWork()
 	int resultQuality = 0;
     if(IsContainerCombinable(combinationId, combinationQty))
     {
+		if (combinationQty > MAX_STACK_COUNT)
+		{
+			psserver->SendSystemOK(clientNum, "This combination would create more than %d items, this is not allowed.", MAX_STACK_COUNT);
+            return false;
+		}
 		//now we know the result quality as this function is going to destroy it we take a copy
 		//TODO: loadlocalvariables is a big nuinseance which should it does unexpected effect to the environment.
 		resultQuality = currentQuality;
@@ -1386,7 +1391,7 @@ bool WorkManager::CombineWork()
 			unsigned int transMatch = AnyTransform(patterns, patternKFactor, combinationId, combinationQty);
 			if ((transMatch == TRANSFORM_MATCH) || (transMatch == TRANSFORM_GARBAGE))
 			{
-				// Set up event for transformation
+                // Set up event for transformation
 				if (workItem->GetCanTransform())
 				{
 					StartTransformationEvent(
@@ -1485,6 +1490,11 @@ void WorkManager::StartConstructWork(Client* client)
             int combinationQty = 0;
             if(IsContainerCombinable(combinationId, combinationQty))
             {
+                if (combinationQty > MAX_STACK_COUNT)
+                {
+                    psserver->SendSystemOK(clientNum, "This combination would create more than %d items, this is not allowed.", MAX_STACK_COUNT);
+					return;
+				}
                 // Check to see if item can be transformed
                 uint32 itemID = workItem->GetBaseStats()->GetUID();
                 unsigned int transMatch = AnyTransform(patterns, patternKFactor, itemID, 1);
@@ -2254,6 +2264,11 @@ unsigned int WorkManager::IsTransformable(uint32 patternId, uint32 targetId, int
     // check if we found a match using 0 source or result items, if we do, return that now as a match.
     if (transCandidateMultiple)
     {
+        if (transCandidateMultiple->GetResultQty() * targetQty > MAX_STACK_COUNT)
+        {
+            psserver->SendSystemOK(clientNum, "This transformation would create more than %d items, this is not allowed.", MAX_STACK_COUNT);
+            return match;
+        }
         if (secure) psserver->SendSystemInfo(clientNum, "Good match for transformation id=%u.\n", transCandidateMultiple->GetId());
         trans = transCandidateMultiple;
         process = procCandidateMultiple;
