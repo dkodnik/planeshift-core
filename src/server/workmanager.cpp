@@ -1580,6 +1580,10 @@ void WorkManager::StartAutoWork(Client* client, gemContainer* container, psItem*
             {
                 case TRANSFORM_MATCH:
                 {
+                    if (!trans) // means we got an "exceeded stack size error"
+                    {
+                        return;
+                    }
                     // Set up event for auto transformation
                     StartTransformationEvent(
                         TRANSFORMTYPE_AUTO_CONTAINER, PSCHARACTER_SLOT_NONE, count, autoItem->GetItemQuality(), autoItem);
@@ -2267,7 +2271,7 @@ unsigned int WorkManager::IsTransformable(uint32 patternId, uint32 targetId, int
         if (transCandidateMultiple->GetResultQty() * targetQty > MAX_STACK_COUNT)
         {
             psserver->SendSystemOK(clientNum, "This transformation would create more than %d items, this is not allowed.", MAX_STACK_COUNT);
-            return match;
+            return TRANSFORM_MATCH;
         }
         if (secure) psserver->SendSystemInfo(clientNum, "Good match for transformation id=%u.\n", transCandidateMultiple->GetId());
         trans = transCandidateMultiple;
