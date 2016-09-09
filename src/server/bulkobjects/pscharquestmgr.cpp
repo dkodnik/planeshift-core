@@ -335,7 +335,7 @@ void psCharacterQuestManager::DiscardQuest(QuestAssignment* q, bool force)
 {
     CS_ASSERT(q);    // Must not be NULL
 
-    if(force || (q->status != PSQUEST_DELETE && !q->GetQuest()->HasInfinitePlayerLockout()))
+    if(force || (q->status != PSQUEST_DELETE && !q->GetQuest()->HasInfinitePlayerLockout() && q->status != PSQUEST_COMPLETE))
     {
         q->dirty = true;
         q->status = PSQUEST_DELETE;  // discarded
@@ -358,7 +358,7 @@ void psCharacterQuestManager::DiscardQuest(QuestAssignment* q, bool force)
                q->GetQuest()->GetName(),owner->GetCharName());
         // Notify the player that he can't discard one-time quests
         psserver->SendSystemError(owner->GetActor()->GetClient()->GetClientNum(),
-                                  "You can't discard this quest, since it can be done just once!");
+                                  "You can't discard this quest, because it is either a one time quest or a completed quest.");
     }
 }
 
