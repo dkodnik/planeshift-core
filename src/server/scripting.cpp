@@ -2888,9 +2888,13 @@ public:
         while (ti.HasNext())
         {
             psTrait* currTrait = ti.Next();
+			csString id = csString();
+			id.AppendFmt("%d", currTrait->uid);
             if (currTrait->gender == c->GetRaceInfo()->gender &&
                 currTrait->race == c->GetRaceInfo()->race &&
-                currTrait->name.CompareNoCase(varName))
+				(currTrait->name.CompareNoCase(varName) ||
+					// check if the Name is actually an ID
+					id.CompareNoCase(varName)))
             {
                 c->SetTraitForLocation(currTrait->location, currTrait);
 
