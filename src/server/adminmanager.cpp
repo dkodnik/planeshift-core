@@ -12680,9 +12680,13 @@ void AdminManager::HandleSetTrait(psAdminCmdMessage &msg, AdminCmdData* cmddata,
     while(ti.HasNext())
     {
         psTrait* currTrait = ti.Next();
+		csString id = csString();
+		id.AppendFmt("%d", currTrait->uid);
         if(currTrait->gender == target->GetRaceInfo()->gender &&
                 currTrait->race == target->GetRaceInfo()->race &&
-                currTrait->name.CompareNoCase(data->traitName))
+                (currTrait->name.CompareNoCase(data->traitName) || 
+					// check if the Name is actually an ID
+					id.CompareNoCase(data->traitName)))
         {
             target->SetTraitForLocation(currTrait->location, currTrait);
 
