@@ -3383,6 +3383,12 @@ protected:
  * @code
  *   <item aim="Target" name="Tria" location="inventory" count="5" />
  * @endcode
+ * Optional parameters in the item tag are:
+ * itemquality (can be an int or an expression), randomize (boolean), randomlevel (int or expression, appears to get ignored by LootRandomizer::RandomizeItem -dec-2016), randomcost (int or expression)
+ * Notice randomize is required to be true before the other 2 take effect.
+ * adjectiveid, suffixid and prefixid (ints) are used to give specific modifiers to specific slots, these are ignored if they are not valid for the item
+ *   but are still applied if the id does not match the slot (a suffixid containing the id of a prefix, etc), though only the last one to land in that slot will be saved.
+ *   Finally, they overwrite the randomly given modifiers in slots of the same type. (if any)
  */
 class ItemOp : public ImperativeAim
 {
@@ -3413,10 +3419,16 @@ public:
         }
         placeOnGround = location == "ground";
 
-        //loads data about the randomization status of the item.
+        //loads optional data about the randomization status of the item.
         randomize = node->GetAttributeValueAsBool("randomize");
-        randomCost = node->GetAttributeValueAsInt("randomcost", 1000);
-        randomLevel = node->GetAttributeValueAsInt("randomlevel", 3);
+        randomCostExpr = MathExpression::Create(node->GetAttributeValue("randomcost", "1000"));
+        randomLevelExpr = MathExpression::Create(node->GetAttributeValue("randomlevel", "3"));
+		// load optional quality
+		itemQualityExpr = MathExpression::Create(node->GetAttributeValue("itemquality", "0"));
+		// load optional modifiers
+		adjectiveIdExpr = MathExpression::Create(node->GetAttributeValue("adjectiveid", "0"));
+		suffixIdExpr = MathExpression::Create(node->GetAttributeValue("suffixid", "0"));
+		prefixIdExpr = MathExpression::Create(node->GetAttributeValue("prefixid", "0"));
 
         return !name.IsEmpty() && count && ImperativeAim::Load(node);
     }
@@ -3428,11 +3440,20 @@ public:
             Error2("Error while executing ItemOp script giving item %s, invalid target character",name.GetData());
             return;
         }
+
         int stackCount = count->Evaluate(env);
         if(stackCount <= 0)
         {
             return;
         }
+
+		// evaluate the following vars to see if they contained math-scripts and/or variables.
+		randomLevel = randomLevelExpr->Evaluate(env);
+		randomCost = randomCostExpr->Evaluate(env);
+		itemQuality = itemQualityExpr->Evaluate(env);
+		suffixId = suffixIdExpr->Evaluate(env);
+		prefixId = prefixIdExpr->Evaluate(env);
+		adjectiveId = adjectiveIdExpr->Evaluate(env);
 
         if(placeOnGround)
         {
@@ -3499,10 +3520,24 @@ protected:
             item->SetStackCount(stackCount);
         }
 
-
         //if we have to randomize the item we do it now.
-        if(randomize)
-            cacheManager->RandomizeItem(item, randomCost, randomLevel);
+		if (randomize)
+		{
+			cacheManager->RandomizeItem(item, randomCost, randomLevel);
+		}
+		if (itemQuality)
+		{
+			item->SetItemQuality(itemQuality);
+		}
+		if (suffixId || prefixId || adjectiveId)
+		{
+			// adding a modifier with ID 0 will be ignored, so we can safely add all 3.
+			csArray<uint32_t> modsToAdd;
+			modsToAdd.Push(suffixId);
+			modsToAdd.Push(prefixId);
+			modsToAdd.Push(adjectiveId);
+			cacheManager->getLootRandomizer()->SetModifiers(item, modsToAdd);
+		}
 
         item->SetLoaded();  // Item is fully created
 
@@ -3512,8 +3547,18 @@ protected:
 protected:
     csString name;
     bool randomize;  ///< If true it will randomize the item upon creation.
-    int randomCost;  ///< The maximum allowed cost for the item.
-    int randomLevel; ///< The amount of modifiers allowed
+	MathExpression* randomCostExpr;  ///< The maximum allowed cost for the item.
+	MathExpression* randomLevelExpr; ///< The amount of modifiers allowed
+	MathExpression* itemQualityExpr; ///< specify item quality.
+	MathExpression* prefixIdExpr; ///< If given, use this specific ID instead of the random one (if any, if none, just apply this).
+	MathExpression* suffixIdExpr; ///< If given, use this specific ID instead of the random one (if any, if none, just apply this).
+	MathExpression* adjectiveIdExpr; ///< If given, use this specific ID instead of the random one (if any, if none, just apply this).
+	int randomLevel;
+	int randomCost;
+	int itemQuality;
+	int suffixId;
+	int prefixId;
+	int adjectiveId;
     MathExpression* count;
     bool placeOnGround;
     CacheManager* cacheManager;

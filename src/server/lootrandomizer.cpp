@@ -314,7 +314,6 @@ psItem* LootRandomizer::SetModifiers(psItem* item, csArray<uint32_t>& mods)
             continue;
         }
 
-        printf("found\n");
         item->AddLootModifier(lootModifier->id, lootModifier->mod_id);
         found = true;
     }
