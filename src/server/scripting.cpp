@@ -3528,6 +3528,7 @@ protected:
 		if (itemQuality)
 		{
 			item->SetItemQuality(itemQuality);
+			item->SetMaxItemQuality(itemQuality);
 		}
 		if (suffixId || prefixId || adjectiveId)
 		{
