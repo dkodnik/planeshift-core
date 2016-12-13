@@ -803,7 +803,8 @@ void CharCreationManager::HandleUploadMessage(MsgEntry* me, Client* client)
 
     psSectorInfo* sectorinfo = psserver->GetCacheManager()->GetSectorInfoByName(sectorname);
 
-    if(!sectorinfo || PlayerHasFinishedTutorial(acctID, sectorinfo->uid))
+	// if we can't find a tutorial zone (SVN server/etc), load default zone for the race instead.
+    if(!sectorinfo)
     {
         raceinfo->GetStartingLocation(x,y,z,yrot,range,sectorname);
         sectorinfo = psserver->GetCacheManager()->GetSectorInfoByName(sectorname);
@@ -1063,17 +1064,6 @@ void CharCreationManager::HandleUploadMessage(MsgEntry* me, Client* client)
             obj->DeleteSelf();
         }
     }
-}
-
-bool CharCreationManager::PlayerHasFinishedTutorial(AccountID acctID, uint32 tutorialsecid)
-{
-    // if there are characters associated with this account that are outside the tutorial assume the tutorial was passed...
-    Result result(db->Select("SELECT id FROM characters WHERE account_id = %u AND loc_sector_id != %u", acctID.Unbox(), tutorialsecid));
-    if(result.IsValid() && result.Count())
-    {
-        return true;
-    }
-    return false;
 }
 
 
