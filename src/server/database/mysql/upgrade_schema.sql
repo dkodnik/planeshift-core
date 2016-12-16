@@ -1881,6 +1881,8 @@ ALTER TABLE accounts ADD COLUMN `OS_platform` char(14) DEFAULT NULL AFTER OS_ver
 ALTER TABLE accounts ADD COLUMN `Machine_type` char(6) DEFAULT NULL AFTER OS_platform;
 UPDATE `server_options` SET `option_value`='1280' WHERE `option_name`='db_version';
 
+SOURCE wc_servernews.sql;
+
 # Insert your upgrade before this line. Remember when you set a new db_version
 # to update the server_options.sql file and update psserver.cpp as well.
 # This to ensure that everything is working if you use the create_all.sql to
