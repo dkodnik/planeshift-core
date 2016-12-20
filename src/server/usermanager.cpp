@@ -2403,6 +2403,27 @@ void UserManager::HandleMount(psUserCmdMessage &msg, Client* client)
         return;
     }
 
+	{
+		MathEnvironment env;
+		env.Define("Actor", client->GetActor());
+		env.Define("Mount", mount->GetActorPtr());
+		MathScriptEngine* eng = psserver->GetMathScriptEngine();
+		MathScript* mountScript = eng->FindScript("CalculateChanceOfMountSuccess");
+		if (mountScript)
+		{
+			mountScript->Evaluate(&env);
+			int result = env.Lookup("Result")->GetRoundValue();
+			if (!result)
+			{
+				psserver->SendSystemError(client->GetClientNum(),
+					"You are not allowed to ride this mount.");
+				return;
+			}
+		}
+	}
+	//<eonwind> Result= 1;
+	//<eonwind> if Result = 0; fail
+
     /*Client *targetClient = mount->GetClient();
     if(targetClient)
     {
