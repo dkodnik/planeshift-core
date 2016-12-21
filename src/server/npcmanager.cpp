@@ -2473,7 +2473,8 @@ void NPCManager::HandlePetCommand(MsgEntry* me,Client* client)
 
             session = OwnerPetList.Get(familiarID, NULL);
 
-            psCharacter* petdata = psserver->CharacterLoader.LoadCharacterData(familiarID, false);
+			// we need to force a reload, if a familiar was morphed, the morph spell is on the GemActor, while the morph effect is on the cached psCharacter, reloading from the database avoids this.
+            psCharacter* petdata = psserver->CharacterLoader.LoadCharacterData(familiarID, true);
             // Check for an existing session
             if(!session)
             {
