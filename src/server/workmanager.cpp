@@ -830,8 +830,14 @@ void WorkManager::HandleProductionEvent(psWorkGameEvent* workEvent)
         calc_mining_chance->Evaluate(&env);
         MathVar* varTotal = env.Lookup("Total");
         MathVar* varResultQuality = env.Lookup("ResultQuality");
+		MathVar* varResultQuantity = env.Lookup("ResultQuantity");
         float total = varTotal->GetValue();
         float resultQuality = varResultQuality->GetValue();
+		float resultQuantity = 1;
+		if (varResultQuantity)
+		{
+			resultQuantity = varResultQuantity->GetValue();
+		}
 
         csString debug;
         debug.AppendFmt("Distance:    %1.3f\n",distance);
@@ -869,6 +875,11 @@ void WorkManager::HandleProductionEvent(psWorkGameEvent* workEvent)
                 // Set quality based on script result
                 item->SetItemQuality(resultQuality);
                 item->SetMaxItemQuality(resultQuality);
+
+				if (resultQuantity > 1 && item->GetIsStackable())
+				{
+					item->SetStackCount(resultQuantity);
+				}
 
                 if(!workerchar->Inventory().AddOrDrop(item))
                 {
