@@ -3023,5 +3023,6 @@ void NpcDialogMenu::SetPrerequisiteScript(psQuestPrereqOp* script)
 
 csString NpcDialogMenu::DialogTrigger::GetQuestTitle()
 {
-    return quest ? quest->GetName() : "(Unknown)";
+	// The fall-back gets used for all dialog that has no quest associated with it (KA-scripts mostly, they got a quest-id of -1. 
+    return quest ? quest->GetName() : "NPC Dialog:"; 
 }
