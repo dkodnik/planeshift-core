@@ -3559,11 +3559,11 @@ bool gemActor::CanSwitchMode(PSCHARACTER_MODE from, PSCHARACTER_MODE to)
 
 void gemActor::SetMode(PSCHARACTER_MODE newmode, uint32_t extraData)
 {
-    // Assume combat messages need to be sent anyway, because the stance may have changed.
+	// Assume combat messages need to be sent anyway, because the stance may have changed.
     // TODO: integrate this with extraData and remove this workaround?
     if(player_mode == newmode && newmode != PSCHARACTER_MODE_COMBAT)
         return;
-
+	
     if(newmode < PSCHARACTER_MODE_PEACE || newmode >= PSCHARACTER_MODE_COUNT)
     {
         Error3("Unhandled mode: %d switching to %d", player_mode, newmode);
@@ -3572,6 +3572,19 @@ void gemActor::SetMode(PSCHARACTER_MODE newmode, uint32_t extraData)
 
     if(!CanSwitchMode(player_mode, newmode))
         return;
+
+	// cancel ongoing work - This needs to be done first since typically, cancel events themselves change mode (call this function), and since it uses class variables, we
+	// need to keep things in order.
+	if (player_mode == PSCHARACTER_MODE_WORK && workEvent)
+	{
+		// keep a Stance copy, cancelled work might overwrite it in a recursive call
+		Stance stanceCopy(combat_stance);
+
+		workEvent->Interrupt();
+		workEvent = NULL;
+		// re-set the stance in case we had a can
+		SetCombatStance(stanceCopy);
+	}
 
     // Force mode to be OVERWEIGHT if encumbered and the proposed mode isn't
     // more important.
@@ -3582,9 +3595,10 @@ void gemActor::SetMode(PSCHARACTER_MODE newmode, uint32_t extraData)
     {
         SetCombatStance(CombatManager::GetStance(cacheManager,"None"));
     }
-
-    if(newmode == PSCHARACTER_MODE_COMBAT)
-        extraData = combat_stance.stance_id;
+	else
+	{ 
+		extraData = combat_stance.stance_id;
+	}
 
     psModeMessage msg(GetClientID(), GetEID(), (uint8_t) newmode, extraData);
     msg.Multicast(GetMulticastClients(), 0, PROX_LIST_ANY_RANGE);
@@ -3605,12 +3619,6 @@ void gemActor::SetMode(PSCHARACTER_MODE newmode, uint32_t extraData)
                            newmode != PSCHARACTER_MODE_COMBAT &&
                            newmode != PSCHARACTER_MODE_DEFEATED);
 
-    // cancel ongoing work
-    if(player_mode == PSCHARACTER_MODE_WORK && workEvent)
-    {
-        workEvent->Interrupt();
-        workEvent = NULL;
-    }
 
     // stop playing current song
     if(player_mode == PSCHARACTER_MODE_PLAY)
