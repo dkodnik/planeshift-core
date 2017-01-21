@@ -420,7 +420,7 @@ void ProgressionManager::HandleSkill(MsgEntry* me, Client* client)
             if(character->GetTrainer() == NULL)
             {
                 psserver->SendSystemInfo(client->GetClientNum(),
-                                         "Can't buy skills when not training!");
+                                         "Speak to a trainer, you cannot train alone!");
                 return;
             }
 
