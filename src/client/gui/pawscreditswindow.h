@@ -25,6 +25,9 @@
  
 class pawsProgressBar;
 
+/**
+ * Screen with credits of the game in a large scrolling text box.
+ */
 class pawsCreditsWindow : public pawsWidget
 {
 public:

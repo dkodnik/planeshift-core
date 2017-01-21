@@ -23,7 +23,9 @@
 class pawsTextBox;
 class pawsMultiLineTextBox;
 
-// A simple window with a textbox to display action location info.
+/**
+ * Pops up a window with the actions location description upon click/view
+ */
 class pawsActionLocationWindow : public pawsWidget, public psClientNetSubscriber
 {
 public:

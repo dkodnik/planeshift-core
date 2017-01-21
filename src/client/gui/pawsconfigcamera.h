@@ -36,7 +36,9 @@ class psCamera;
 //                        pawsConfigCamera
 //////////////////////////////////////////////////////////////////////////////
 
-
+/**
+ *  Configuration screen for camera settings like first/third person view, collision, spring, movement, ...
+ */
 class pawsConfigCamera : public pawsConfigSectionWindow
 {
 public:

@@ -28,6 +28,9 @@
 
 class pawsCheckBox;
 
+/**
+ *  configuration screen for chat logs
+ */
 class pawsConfigChatLogs : public pawsConfigSectionWindow
 {
 public:

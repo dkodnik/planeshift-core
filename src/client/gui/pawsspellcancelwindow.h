@@ -25,7 +25,8 @@ class pawsProgressBar;
 
 #include "net/subscriber.h"
 
-/** This handles all the details about how the spell cancel works.
+/**
+ *  A progress bar displayed when casting a spell, with a button to cancel the spell.
  */
 class pawsSpellCancelWindow : public pawsWidget
 {

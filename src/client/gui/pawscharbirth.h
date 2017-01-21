@@ -33,6 +33,9 @@ struct Zodiac
     unsigned int month;
 };
 
+/**
+ *  Char creation screen with birth, zodiac, siblings, parents, ....
+ */
 class pawsCharBirth : public pawsWidget
 {
 public:

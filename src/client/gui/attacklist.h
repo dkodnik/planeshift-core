@@ -1,5 +1,5 @@
 /*
- * attacklist.cpp              author: hartra344 [at] gmail [dot] com
+ * attacklist.h              author: hartra344 [at] gmail [dot] com
  *
  * Copyright (C) 2001-2011 Atomic Blue (info@planeshift.it, http://www.atomicblue.org)
  *
@@ -29,7 +29,8 @@ class pawsSlot;
 #include "gui/pawscontrolwindow.h"
 
 
-/** This handles all the details about how the spell book works.
+/**
+ *  Window managing special attacks list in a queue
  */
 class pawsAttackBookWindow : public pawsControlledWindow, public psClientNetSubscriber
 {

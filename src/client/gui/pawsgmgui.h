@@ -30,6 +30,10 @@
 #include "chatwindow.h"
 #include "psclientchar.h"
 
+/**
+ *  Window to set special flags on GM char, like invincible, invisible, etc... 
+ *  used with "/show gm" then clicking on the attributes tab
+ */
 class pawsGmGUIWindow : public pawsWidget, public psCmdBase, public iOnStringEnteredAction
 {
     bool isVisible;

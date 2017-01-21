@@ -34,6 +34,10 @@ public:
     bool OnDoubleClick(int button, int modifiers, int x, int y);
 };
 
+/**
+ *  Window which allows GM to spawn items in game, shows full tree of items on the left
+ *  and 3d preview of item on the right. used with /item
+ */
 class pawsGMSpawnWindow : public pawsWidget, public psClientNetSubscriber, public DelayedLoader
 {
 public:

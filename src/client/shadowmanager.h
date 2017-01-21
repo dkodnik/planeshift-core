@@ -25,6 +25,9 @@
 
 struct iConfigManager;
 
+/**
+ *  Create shadows under the player/NPC/item entity
+ */
 class psShadowManager
 {
 private:

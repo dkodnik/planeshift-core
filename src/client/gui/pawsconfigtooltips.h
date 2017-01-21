@@ -36,6 +36,9 @@
 
 class pawsCheckBox;
 
+/**
+ * configuration screen for tooltips, colors, enabled yes/no, fonts
+ */
 class pawsConfigTooltips : public pawsConfigSectionWindow, public iOnColorEnteredAction
 {
 public:

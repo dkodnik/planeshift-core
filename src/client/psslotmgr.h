@@ -37,7 +37,9 @@ struct iMeshWrapper;
 // Classes
 //=============================================================================
 
-
+/**
+ *  Manages dragging items from one inventory slot to another and dropping them into the world
+ */
 class psSlotManager : public iOnNumberEnteredAction
 {
 public:

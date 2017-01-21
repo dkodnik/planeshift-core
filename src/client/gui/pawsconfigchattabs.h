@@ -25,8 +25,9 @@
 #include "pawsconfigwindow.h"
 #include "chatwindow.h"
 
-
-/// Configuration panel for chat window tabs.
+/**
+ *  configuration screen to decide which tabs will be displayed in chat window. Like alliance, guild, whisper, ...
+ */
 class pawsConfigChatTabs : public pawsConfigSectionWindow
 {
 

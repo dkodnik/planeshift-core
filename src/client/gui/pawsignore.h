@@ -28,8 +28,7 @@
 class pawsListBox;
 
 /** A player's ignore list window.
- *  From here the player can add or remove messages from a particular
-player.
+ *  From here the player can add or remove messages from a particular player.
  */
 class pawsIgnoreWindow : public pawsWidget,public iOnStringEnteredAction
 {

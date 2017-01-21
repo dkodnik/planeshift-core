@@ -32,7 +32,7 @@ class psCharAppearance;
 #include "net/cmdbase.h"
 #include "gui/pawscontrolwindow.h"
 
-/** This handles all the details about how the skill window.
+/** A window similar to the one of the player with all details of your pet stats/skill.
  */
 class pawsPetStatWindow : public pawsWidget, public psClientNetSubscriber
 {

@@ -29,6 +29,9 @@
 
 class pawsProgressBar;
 
+/**  
+ *  Help window, with tree of topics on the left, and description on the right panel
+ */
 class pawsHelp : public pawsControlledWindow
 {
 public:

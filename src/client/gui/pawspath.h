@@ -23,6 +23,9 @@
 #include "psclientchar.h"
 #include "pawscharcreatemain.h"
  
+/**
+ * Char creation screen used for "Quick" creation. Displays available paths and the stats/skills bonuses
+ */
 class pawsPathWindow : public pawsWidget
 {
 public:

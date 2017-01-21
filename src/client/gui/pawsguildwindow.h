@@ -40,6 +40,9 @@ typedef struct
     int points, level;
 } guildMemberInfo;
 
+/**  
+ *  Window with all information about your guild, also allows to create a new guild. Members, permissions, alliances
+ */
 class pawsGuildWindow : public pawsControlledWindow, public psClientNetSubscriber,public iOnNumberEnteredAction,public iOnStringEnteredAction,public iOnItemChosenAction
 {
 public:

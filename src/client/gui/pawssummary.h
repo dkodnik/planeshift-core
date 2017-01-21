@@ -26,7 +26,10 @@
 class psCreationManager;
 class pawsObjectView;
 class psCharAppearance;
- 
+
+/**
+ *  Char creation screen to summarize all choices made in the previous char creation screens
+ */
 class pawsSummaryWindow : public pawsWidget, public DelayedLoader
 {
 public:

@@ -35,6 +35,7 @@ class pawsRadioButtonGroup;
 
 /*
  * class pawsConfigShortcut is options screen for configuration of Shortcut Bar
+ * like buttons size, text size, spacing, font, ...
  */
 class pawsConfigShortcut : public pawsConfigSectionWindow
 {

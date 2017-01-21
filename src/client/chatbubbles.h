@@ -49,7 +49,8 @@ struct BubbleChatType
 	bool				enabled;
 };
 
-
+/** Creates the effect of a chat bubble on top of character heads taking data from text chat
+  */
 class psChatBubbles : public iNetSubscriber
 {
 private:

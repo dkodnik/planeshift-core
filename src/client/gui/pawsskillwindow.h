@@ -73,7 +73,7 @@ private:
 
 //-----------------------------------------------------------------------------
 
-/** This handles all the details about how the skill window.
+/** Window displaying the player's stats, vitals and skills.
  */
 class pawsSkillWindow : public pawsControlledWindow, public psClientNetSubscriber, public iOnNumberEnteredAction
 {

@@ -44,6 +44,8 @@ class  MsgHandler;
 /**
  *  This class handles mode messages from the server, specifying
  *  actions for a clicked location.
+ *  Handles client side the addition and removals of actions locations
+ *  in conjuction with pawsgmaction.cpp
  */
 class ActionHandler : public psClientNetSubscriber
 {

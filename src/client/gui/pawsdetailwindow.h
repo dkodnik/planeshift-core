@@ -29,7 +29,9 @@ class pawsTextBox;
 class pawsMultiLineTextBox;
 class GEMClientObject;
 
-/** A simple info window that displays the position and sector of player.
+/**
+ * Window to view character details like IC, OOC, Char descriptions.
+ * GMs see also stats/skills/factions/... used with /targetinfo command
  */
 class pawsDetailWindow : public pawsWidget, public psClientNetSubscriber
 {

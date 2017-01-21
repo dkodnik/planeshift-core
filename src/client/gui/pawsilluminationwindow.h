@@ -28,6 +28,7 @@
 #define SKETCHBEZIER_SEGMENTS 20
 /**
  * A window that shows a map or picture.
+ * Allows the player to edit the map or picture.
  */
 class pawsSketchWindow : public pawsWidget, public psClientNetSubscriber,public iOnStringEnteredAction,public iOnColorEnteredAction
 {

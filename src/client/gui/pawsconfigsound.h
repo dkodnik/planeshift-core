@@ -36,7 +36,7 @@ class pawsScrollBar;
 class pawsRadioButtonGroup;
 
 /**
- * class pawsConfigPvP is options screen for configuration of PvP
+ * configuration screen for sounds volumes, music volumes, UI volume, ambient, voices, ...
  */
 class pawsConfigSound : public pawsConfigSectionWindow
 {

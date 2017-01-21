@@ -36,7 +36,9 @@ class psMouseBinds;
 //                        pawsConfigMouse
 //////////////////////////////////////////////////////////////////////////////
 
-
+/**
+ * configuration screen for mouse settings like invert axis, sensibility, ...
+ */
 class pawsConfigMouse : public pawsConfigSectionWindow
 {
 public:

@@ -26,7 +26,9 @@ class pawsProgressBar;
 #include "net/cmdbase.h"
 #include "net/msghandler.h"
 
-/** This handles all the details about how the craft cancel works.
+/**
+ * This handles all the details about how the craft cancel works.
+ * Crafting progress bar and button to cancel it
  */
 class pawsCraftCancelWindow : public pawsWidget, public psClientNetSubscriber
 {

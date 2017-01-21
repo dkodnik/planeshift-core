@@ -32,7 +32,9 @@
 #include "pawsconfigwindow.h"
 
 
-
+/**
+ *  configuration screen for FPS cap and min/max values
+ */
 class pawsConfigDetails : public pawsConfigSectionWindow
 {
 public:

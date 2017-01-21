@@ -34,6 +34,7 @@ class pawsRadioButtonGroup;
 
 /**
  * class pawsConfigPvP is options screen for configuration of PvP
+ * like accept PVP always, ask confirmation, ...
  */
 class pawsConfigPvP : public pawsConfigSectionWindow
 {

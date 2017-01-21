@@ -31,8 +31,8 @@ class pawsTextBox;
 class pawsMessageTextBox;
 class pawsListBox;
 
-/**  This window shows the current members that are in your group.
- *  
+/**  
+ *  This window shows the current members that are in your group.
  */
 class pawsGroupWindow : public pawsControlledWindow, public psClientNetSubscriber, public iOnStringEnteredAction
 {

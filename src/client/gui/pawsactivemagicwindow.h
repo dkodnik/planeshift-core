@@ -36,7 +36,8 @@ class pawsConfigPopup;
 #define CONFIG_ACTIVEMAGIC_FILE_NAME       "/planeshift/userdata/options/activemagic.xml"
 #define CONFIG_ACTIVEMAGIC_FILE_NAME_DEF   "/planeshift/data/options/activemagic_def.xml"
 
-/** This handles all the details about how the spell cancel works.
+/**
+ *  Window with current buffs and spells active on the character, and timer for buff to go away
  */
 class pawsActiveMagicWindow : public pawsControlledWindow, public psClientNetSubscriber
 {

@@ -23,6 +23,9 @@
 #include "paws/pawswidget.h"
 #include "paws/pawslistbox.h"
 
+/**
+ * A window with list of rewards the player can choose as a result of quest completion
+ */
 class pawsQuestRewardWindow : public pawsWidget, public psCmdBase
 {
 public:

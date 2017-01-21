@@ -31,6 +31,9 @@
 #include "pawsconfigwindow.h"
 #include "chatwindow.h"
 
+/**
+ *  configuration screen for chat filters
+ */
 class pawsConfigChatFilter : public pawsConfigSectionWindow
 {
 public:

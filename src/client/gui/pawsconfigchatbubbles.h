@@ -56,6 +56,9 @@ struct pawsBubbleChatType
 	pawsComboBox *Align;
 };
 
+/**
+ *  configuration screen for chat bubbles 
+ */
 class pawsConfigChatBubbles : public pawsConfigSectionWindow
 {
 public:

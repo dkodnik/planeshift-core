@@ -27,6 +27,9 @@
 class Autoexec;
 class pawsCheckBox;
 
+/**
+ *  Configuration screen for autoexec functions, on all chars or one char only
+ */
 class pawsConfigAutoexec : public pawsConfigSectionWindow
 {
 public:

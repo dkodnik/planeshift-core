@@ -29,6 +29,7 @@ class pawsEditTextBox;
 
 /** Window Widget that displays information about the mind item to 
  *  be used in crafting.
+ *  Crafting window which allows to filter recipes by text. Alternative way to book read, used with /study command
  *
  * This handles the incoming network traffic and displays the information 
  * for the client in a tree about all the items available in the current

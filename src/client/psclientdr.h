@@ -41,6 +41,9 @@ class pawsGroupWindow;
 class pawsPetStatWindow;
 class GEMClientActor;
 
+/**
+ *  Manages dead reckoning, char position and updates
+ */
 class psClientDR : public psClientNetSubscriber
 {
 public:

@@ -1,5 +1,5 @@
 /*
- * glyph.h - Author: Anders Reggestad
+ * pawsglyphwindow.h - Author: Anders Reggestad
  *
  * Copyright (C) 2003 Atomic Blue (info@planeshift.it, http://www.atomicblue.org)
  *
@@ -76,7 +76,9 @@ protected:
 CREATE_PAWS_FACTORY( pawsGlyphSlot );
 
 
-
+/**
+ *  Window opened from the spell book, when you want to see your glyphs and research new spells.
+ */
 class pawsGlyphWindow  : public pawsWidget, public psClientNetSubscriber
 {
 public:

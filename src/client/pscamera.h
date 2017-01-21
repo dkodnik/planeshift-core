@@ -48,6 +48,10 @@ struct iMeshWrapper;
 class GEMClientActor;
 class GEMClientObject;
 
+/**
+ *  Handles camera modes like first person, thrid person, speak to npc
+ *  manages collision of camera with meshes, moving, turning, ...
+ */
 class psCamera : public iOptionsClass, public psCmdBase
 {
 public:

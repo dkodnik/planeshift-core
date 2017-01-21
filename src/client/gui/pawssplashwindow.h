@@ -23,6 +23,9 @@
  
 class pawsProgressBar;
 
+/**
+ *  Window displaying a splash image while the engine loads in background, then loads the login screen
+ */
 class pawsSplashWindow : public pawsWidget
 {
 public:

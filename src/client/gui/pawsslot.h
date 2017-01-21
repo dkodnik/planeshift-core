@@ -15,7 +15,10 @@ class pawsTextBox;
 // Classes
 //=============================================================================
 
-
+/**
+ * A slot which may contain one item, with icon, and stack count.
+ * Multiple slots are used to build up display items in inventory or in exchange items widgets
+ */
 class pawsSlot : public pawsWidget
 {
 public:

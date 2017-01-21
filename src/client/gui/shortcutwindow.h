@@ -57,7 +57,7 @@ class pawsChatWindow;
 //=============================================================================
 
 /**
- * The shortcut window itself
+ * The shortcut window itself, including the window used to edit the shortcuts
  */
 class pawsShortcutWindow : public pawsControlledWindow, public pawsFingeringReceiver, public psClientNetSubscriber
 {

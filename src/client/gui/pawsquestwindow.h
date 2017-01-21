@@ -52,15 +52,10 @@ enum
 };
 
 /**
- * Window contains a list of the available loot items.
- * with options to take them, roll for them or cancel the window.
- *
- * NOTE: the current expected columns for the listbox are
- *     as follows:
- *
- *  1) icon
- *  2) item name
- *  3) item id (hidden)
+ * Window containing a list of completed and in progress quests.
+ * Contains also list of completed GM events.
+ * Allows to add notes to quests.
+ * questnotebook.xml
  */
 class pawsQuestListWindow : public pawsControlledWindow, public psCmdBase, public iOnStringEnteredAction, public iOnNumberEnteredAction
 {

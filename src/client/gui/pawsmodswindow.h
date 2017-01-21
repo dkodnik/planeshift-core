@@ -28,6 +28,7 @@ class pawsGMSpawnWindow;
 /**
  * The Mods window shows 3 lists of item modifiers when creating items
  * from the pawsGMSpawnWindow.
+ * Double click on an item on the tree to launch this window
  */
 class pawsModsWindow : public pawsWidget, public psClientNetSubscriber
 {

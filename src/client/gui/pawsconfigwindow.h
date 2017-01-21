@@ -98,9 +98,10 @@ struct sectWnd_t
 
 
 
-// Class pawsConfigWindow implements the main configuration window that is invoked
-// in-game by clicking on the "Options" button.
-
+/**
+ * Class pawsConfigWindow implements the main configuration window that is invoked
+ * in-game by clicking on the "Options" button.
+ */
 class pawsConfigWindow : public pawsControlledWindow
 {
 public:

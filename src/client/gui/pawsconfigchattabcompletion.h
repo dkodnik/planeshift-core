@@ -26,6 +26,9 @@
 
 class pawsChatWindow;
 
+/**
+ *  configuration screen for chat auto completed (pressing tab)
+ */
 class pawsConfigChatTabCompletion : public pawsConfigSectionWindow
 {
 public:

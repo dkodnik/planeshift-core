@@ -34,7 +34,10 @@ class pawsComboBox;
 class pawsYesNoBox;
 class pawsCheckBox;
 
-
+/**
+ *  Window for GMs to create and edit new actionlocations, including mesh, position, script triggered, etc...
+ *  used with "/show gm" then clicking on the actions tab
+ */
 class pawsGMActionWindow : public pawsWidget
 {
 public:

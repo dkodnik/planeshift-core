@@ -29,7 +29,7 @@ class pawsTextBox;
 class pawsMessageTextBox;
 class pawsSlot;
 
-/** A window that shows the description of an container.
+/** A window which shows content of a container (like furnace), with slots, item images, allows drag
  */
 class pawsContainerDescWindow : public pawsWidget, public psClientNetSubscriber
 {

@@ -102,6 +102,8 @@ struct InstanceObject : public CS::Utility::FastRefCount<InstanceObject>
 
 /**
  * Client version of the Cel Manager
+ * Requests world loading. Handles entities client side,
+ * attaching players and objects to meshes, placing lights, and effects, ....
  */
 class psCelClient : public psClientNetSubscriber
 {

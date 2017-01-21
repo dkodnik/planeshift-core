@@ -25,7 +25,8 @@
 class pawsTextBox;
 class pawsMultiLineTextBox;
 
-/** A window that shows the description of an item.
+/** A window that allows to read a book, including text, pagination and images.
+ *  Used also to display crafting book information.
  */
 class pawsBookReadingWindow : public pawsWidget, public psClientNetSubscriber
 {

@@ -22,7 +22,7 @@
 
 #include "paws/pawsobjectview.h"
 
-/** The character window - here we add a mouse listener so you can 
+/** The character 3D doll view - here we add a mouse listener so you can 
  * drag-n-drop inventory onto the avatar and have it automagically allocated 
  * to the correct spot.
  */

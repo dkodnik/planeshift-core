@@ -40,7 +40,7 @@
 //=============================================================================
 
 /**
- *
+ *  Used in the past for quick spell hot bar, then substituted by activemagicwindow
  */
 class pawsBartenderWindow : public pawsControlledWindow
 {

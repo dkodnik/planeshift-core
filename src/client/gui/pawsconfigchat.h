@@ -34,6 +34,9 @@ class pawsCheckBox;
 class pawsEditTextBox;
 class pawsRadioButtonGroup;
 
+/**
+ *  configuration screen for chat window
+ */
 class pawsConfigChat : public pawsConfigSectionWindow
 {
 public:

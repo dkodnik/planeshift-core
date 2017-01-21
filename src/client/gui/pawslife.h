@@ -26,7 +26,9 @@ class psCreationManager;
 class pawsTextBox;
 class pawsMultiLineTextBox;
 
- 
+/**
+ * A character creation screen where the player selects the life events happened to his character
+ */
 class pawsLifeEventWindow : public pawsWidget
 {
 public:

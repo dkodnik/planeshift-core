@@ -27,6 +27,9 @@
 class psShadowManager;
 class pawsCheckBox;
 
+/**
+ * configuration screen for shadows. turns them on or off
+ */
 class pawsConfigShadows : public pawsConfigSectionWindow
 {
 public:

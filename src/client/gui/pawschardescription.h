@@ -23,6 +23,9 @@
 #include "paws/pawswidget.h"
 #include "paws/pawstextbox.h"
 
+/**
+ *  Pop up window, called by pawsdetailwindow to edit IC, OOC, Creation descriptions for the current character
+ */
 class pawsCharDescription : public pawsWidget, public psClientNetSubscriber
 {
 public:

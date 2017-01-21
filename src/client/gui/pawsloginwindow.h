@@ -31,7 +31,10 @@ class pawsEditTextBox;
 class pawsTextBox;
 class pawsListBox;
 class pawsMultiLineTextBox;
-    
+
+/**
+ * Login Window including account, password, server list, ping of servers, save password.
+ */
 class pawsLoginWindow : public pawsWidget
 {
 public:

@@ -28,6 +28,9 @@
 
 class pawsChatWindow;
 
+/**
+ * configuration screen for spellchecker, on/off and colors
+ */
 class pawsConfigSpellChecker : public pawsConfigSectionWindow
 {
 public:

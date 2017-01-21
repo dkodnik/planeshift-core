@@ -29,14 +29,12 @@
 #define MAX_CONTENT_LEN 65450
 
 class pawsEditTextBox;
-/**
-lalalala
-*/
 
+/**
+ *  Window used to write a book, you can choose title and type in content. Also load and save the text.
+ */
 class pawsWritingWindow: public pawsWidget, public psClientNetSubscriber, public iOnStringEnteredAction
-/* la? */
 {
-/* la. */
 public:
     //not only load from XML but also dynamically activate widgety things based on 
     //the inks & pens that the server sends us

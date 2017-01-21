@@ -25,6 +25,10 @@
 #include "paws/pawswidget.h"
 #include "paws/pawsokbox.h"
 
+/**
+ *  Shown when the player clicks on quit icon.
+ *  Windows which asks the player if they want to quit, then quits the game.
+ */
 class pawsQuitInfoBox : public pawsWidget
 {
 public:

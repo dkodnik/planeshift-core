@@ -31,7 +31,8 @@ class pawsSlot;
 #include "gui/pawscontrolwindow.h"
 
 
-/** This handles all the details about how the spell book works.
+/** Spell Book Window. List all known spells, with their icon and description.
+ *  Launches the research spell window.
  */
 class pawsSpellBookWindow : public pawsControlledWindow, public psClientNetSubscriber
 {
