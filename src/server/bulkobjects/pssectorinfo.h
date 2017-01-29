@@ -39,14 +39,10 @@
 //=============================================================================
 
 
-/** Contains information about sectors from the server perspective.
-*
-*  Right now this class just includes the ID, name of a sector and rain parameters.
-*  Future versions may include parameters for a bounding box, portals to other sectors, or other information.
-*
-*
-*
-*/
+/** 
+ *  Contains information about sectors from the server perspective.
+ *  It includes the ID, name of a sector and weather parameters.
+ */
 class psSectorInfo : public iScriptableVar
 {
 public:

@@ -51,6 +51,10 @@ struct psRaceStartingLocation
     const char* sector_name;
 };
 
+/**
+ * Defines characteristics of a race associated to an NPC, player or pet.
+ * Includes gender, movement speed, armor, items, regeneration, ...
+ */
 struct psRaceInfo
 {
 protected:

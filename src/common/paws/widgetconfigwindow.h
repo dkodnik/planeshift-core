@@ -34,9 +34,9 @@ class pawsScrollBar;
  * \addtogroup common_paws
  * @{ */
 
-//-----------------------------------------------------------------------------
-//                            class WidgetConfigWindow
-//-----------------------------------------------------------------------------
+/**
+ * Shown when you right click on a window. Sets alpha trasparency, fade speed, font scaling
+ */
 class WidgetConfigWindow : public pawsWidget
 {
 public:

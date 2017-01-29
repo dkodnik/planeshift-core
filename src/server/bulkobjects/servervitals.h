@@ -73,10 +73,11 @@ struct Vital
 
 //----------------------------------------------------------------------------
 
-/** Server side of the character vitals manager.  Does a lot more accessing
-  * of the data to set particular things.  Also does construction of data to
-  * send to a client.
-  */
+/**
+ * Server side of the character vitals manager.  Does a lot more accessing
+ * of the data to set particular things.  Also does construction of data to
+ * send to a client.
+ */
 class psServerVitals : public psVitalManager<Vital>
 {
 public:

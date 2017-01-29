@@ -65,6 +65,10 @@ enum PSSKILLS_CATEGORY
     PSSKILLS_CATEGORY_FACTIONS
 };
 
+/**
+ * Represents a skill an NPC, player or pet can learn.
+ * Includes description, cost, practice needed
+ */
 class psSkillInfo
 {
 public:

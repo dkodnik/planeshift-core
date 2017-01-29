@@ -60,7 +60,9 @@ class EventManager;
 #define TRIBE_UNLIMITED_SIZE   100
 
 /**
- * Class used to define a Tribal Object
+ * Holds list of tribe members, position of tribe home
+ * Keeps resources and handles tribe perceptions.
+ * 
  */
 class Tribe : public ScopedTimerCB, public RemoteDebug
 {

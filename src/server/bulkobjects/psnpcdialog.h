@@ -51,6 +51,11 @@ class Client;
 
 struct iObjectRegistry;
 
+/**
+ * A KnowledgeArea is a set of triggers and answers the NPC can provide when asked.
+ * Example can be knowledgearea of a city, famous personalities or a job.
+ * Knowledge areas have priorities to define which one is searched first for an answer.
+ */
 struct KnowledgeArea
 {
     csString area;

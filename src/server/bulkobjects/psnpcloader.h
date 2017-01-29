@@ -42,6 +42,10 @@ class psCharacter;
 class psDialogManager;
 struct psTrainerSkill;
 
+/**
+ * This is a utility class used to load/save NPCs from/to an XML file
+ * Was used in the past to load NPCs created by people with no access to the database or webconsole.
+ */
 class psNPCLoader
 {
 public:

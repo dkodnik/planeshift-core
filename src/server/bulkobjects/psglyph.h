@@ -44,6 +44,8 @@ class psCharacter;
 
 
 /**
+ * Defines a glyph, one element to create a spell.
+ * Loads definition from database, manages purify status.
  */
 class psGlyph : public psItem
 {

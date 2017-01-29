@@ -15,6 +15,9 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
+ *
+ * Contains all prerequisites for a quest to be active, example completion of another quest,
+ * or certain skills/ranks
  */
 
 #ifndef __PSQUESTPREREQOPS_H__

@@ -61,7 +61,8 @@ class psQuest;
 bool LoadPrerequisiteXML(csRef<psQuestPrereqOp> &prerequisite, psQuest* self, csString script);
 
 /**
- * This class holds the master list of all quests available in the game.
+ * This class holds all information for one quest with its reference to parent quest, list of steps,
+ * lockoutime, sub quests, ...
  */
 class psQuest : public CS::Utility::WeakReferenced
 {

@@ -44,7 +44,9 @@ struct psTrainerSkill
     float min_faction;
 };
 
-
+/**
+ * Holds information about the skills a character (usually NPC) can teach.
+ */
 class psTrainerInfo : public csRefCount
 {
 public:

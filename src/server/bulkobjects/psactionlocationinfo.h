@@ -52,10 +52,8 @@ class MathExpression;
  * @{ */
 
 /**
- * This huge class stores all the properties of any object
- * a player can have in the game.  All stats, bonuses, maluses,
- * magic stat alterations, combat properties, spell effects,
- * and so forth are all stored here.
+ * This class stores all the properties of an action location
+ * Entrance, return location, name, response type, trigger.
  */
 class psActionLocation
 {

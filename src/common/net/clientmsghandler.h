@@ -32,6 +32,9 @@ struct iObjectRegistry;
  * \addtogroup common_net
  * @{ */
 
+/**
+ * Handles messages to be sent out, connects to server and send those
+ */
 class ClientMsgHandler : public MsgHandler
 {
 public:

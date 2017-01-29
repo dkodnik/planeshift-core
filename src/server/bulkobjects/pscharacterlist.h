@@ -36,6 +36,10 @@
 
 #define MAX_CHARACTERS_IN_LIST 10
 
+/**
+ * Holds a list of characters associated to one account.
+ * Used in the select character screen.
+ */
 class psCharacterList : public iCachedObject
 {
 public:

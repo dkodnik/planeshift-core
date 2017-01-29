@@ -34,6 +34,10 @@
 // Local Includes
 //=============================================================================
 
+/**
+ * Represent a visual feature of character customization
+ * like hair style, color of eyes, skin color, ...
+ */
 struct psTrait
 {
     psTrait();

@@ -27,7 +27,7 @@
  * @{ */
 
 /**
- * A widget that can be used to select key and display combinations.
+ * A widget that can be used to get a key combination (alt+a, ctrl+s) and display it in text format.
  */
 class pawsKeySelectBox : public pawsWidget
 {

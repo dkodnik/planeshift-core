@@ -51,13 +51,16 @@ struct psItemCategory
 };
 
 
-
+/**
+ * This class retrieves the merchant categories for an NPC.
+ * A character is defined to be a merchant if there are
+ * merchant item categories for the character.
+ */
 class psMerchantInfo : public csRefCount
 {
 public:
     /**
-     * A character is defined to be a merchant if there are
-     * merchant item categories for the character.
+     * Loads the merchant categories for one NPC
      *
      * @param pid The characterid to check.
      * @return Return true if the character is a merchant.

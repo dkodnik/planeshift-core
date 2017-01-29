@@ -53,7 +53,7 @@ class CombatManager;
 struct Stance;
 class psCombatAttackGameEvent;
 
-/** This stuct holds data for generic attack types
+/** This struct holds data for generic attack types
  * This could be for example an assassin attack which would require maybe daggers. and require dual wielded daggers at that, so each dagger does part of the attack specifically.
  * each attack type would also be based off a specic skill, such as strength or agility.
  */
