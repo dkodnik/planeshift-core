@@ -764,6 +764,8 @@ bool MathScriptEngine::LoadScripts(iDataConnection* db, bool reload)
             Error2("Failed to load MathScript >%s<.", name);
             ok = false;
             continue;
+        } else {
+            Debug2(LOG_SCRIPT, 0, "Loaded MathScript >%s<.", name);
         }
 
         if (reload)
