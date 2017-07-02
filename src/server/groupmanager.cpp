@@ -716,6 +716,7 @@ void GroupManager::Leader(psGroupCmdMessage &msg,gemActor* client)
 
     group->SetLeader(player->GetActor());
     group->BroadcastMemberList();
+	psserver->SendSystemInfo(player->GetClientNum(), "You are now the leader of your group.");
 
     psserver->SendSystemInfo(client->GetClientID(),"You have transferred leadership of the group to %s.", playerName.GetData());
 }
