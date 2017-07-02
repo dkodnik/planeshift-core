@@ -701,7 +701,7 @@ void GroupManager::Leader(psGroupCmdMessage &msg,gemActor* client)
 
     if(!player || !player->GetActor())
     {
-        psserver->SendSystemError(player->GetClientNum(),"%s is not a member of your group.",
+        psserver->SendSystemError(client->GetClientID(),"%s is not a member of your group.",
                                   playerName.GetData());
         return;
     }
@@ -709,7 +709,7 @@ void GroupManager::Leader(psGroupCmdMessage &msg,gemActor* client)
     csRef<PlayerGroup> playergroup = player->GetActor()->GetGroup();
     if(playergroup != group)
     {
-        psserver->SendSystemError(player->GetClientNum(),"%s is not a member of your group.",
+        psserver->SendSystemError(client->GetClientID(),"%s is not a member of your group.",
                                   playerName.GetData());
         return;
     }
