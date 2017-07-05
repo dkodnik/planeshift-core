@@ -618,7 +618,7 @@ void UserManager::SendCharacterDescription(Client* client, gemActor* actor, bool
                 "to be as intelligent as a stone",
                 "to be an apprentice magic user",
                 "to be an advanced apprentice in magic use",
-                "to be a competant magic user",
+                "to be a competent magic user",
                 "to be an above average mage",
                 "to be highly advanced in the arcane arts",
                 "to be surrounded by a powerful magic aura"
