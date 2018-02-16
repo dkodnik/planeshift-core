@@ -569,6 +569,7 @@ void SpawnManager::RepopulateLive(psSectorInfo* sectorinfo)
     psCharacter** chardatalist = NULL;
     int count;
 
+	// Loads all the data of NPCs without spawning them yet
     chardatalist = psServer::CharacterLoader.LoadAllNPCCharacterData(sectorinfo,count);
     if(chardatalist==NULL)
     {
@@ -576,6 +577,7 @@ void SpawnManager::RepopulateLive(psSectorInfo* sectorinfo)
         return;
     }
 
+	// for each of the NPCs found and "spawnable", it calls entityManager to create the new gemNPC and spawns it
     for(int i=0; i<count; i++)
     {
         if(chardatalist[i] != NULL)
