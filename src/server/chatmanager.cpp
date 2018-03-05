@@ -265,12 +265,14 @@ void ChatManager::HandleChatMessage(MsgEntry* me, Client* client)
             }
             case CHAT_TELL:
             {
+				// the name of the target player should not be empty
                 if(msg.sPerson.Length() == 0)
                 {
                     psserver->SendSystemError(client->GetClientNum(), "You must specify name of player.");
                     break;
                 }
 
+				// Search a player object from its name
                 Client* target = FindPlayerClient(msg.sPerson);
                 if(target && !target->IsSuperClient())
                 {

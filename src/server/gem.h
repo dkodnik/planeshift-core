@@ -491,7 +491,7 @@ public:
     };
 
     /**
-     *
+     * Returns all the clients which are inside our proxy list.
      */
     csArray<PublishDestination> &GetMulticastClients();
 

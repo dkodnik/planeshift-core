@@ -254,6 +254,7 @@ public:
     /// the alliance id value if the player is member of a guild in an alliance
     int GetAllianceID();
 
+	/// Sets the player state to ready. For example ready to receive chat messages.
     void SetReady(bool rdy)
     {
         ready = rdy;

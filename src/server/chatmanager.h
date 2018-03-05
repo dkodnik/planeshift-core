@@ -80,6 +80,8 @@ public:
     void HandleChannelLeaveMessage(MsgEntry* me, Client* client);
 
     void SendNotice(psChatMessage &msg);
+
+	// Used from server console to send messages to all players, example /say Server is getting updated, be patient.
     void SendServerChannelMessage(psChatMessage &msg, uint32_t channelID);
 
     NpcResponse* CheckNPCEvent(Client* client,csString &trigger,gemNPC* &target);
@@ -117,7 +119,10 @@ protected:
     // Chat channel state
     // uint32_t here to allow hashing
     // csHashReversible is not used because it does not allow a many to many mapping
+	// values are : clientNumber, channelID
     csHash<uint32_t, uint32_t> channelSubscriptions;
+
+	// values are : channelID, clientNumber
     csHash<uint32_t, uint32_t> channelSubscribers;
 
     // case-insensitive

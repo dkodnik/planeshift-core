@@ -75,7 +75,9 @@ public:
 
     /**
      * Decodes an area: expression.
-     *
+     * Syntax can be: area:[players|actors|items|npcs|entities]:[range]:[filter]
+	 * Example: area:players:10:Erel*  (this will find all players in 10 meters area, which are named Erel*)
+	 * Syntax can be map:mapname[:name]
      *  @param client The client of the caller
      *  @param target The area: expression
      */

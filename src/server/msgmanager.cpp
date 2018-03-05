@@ -189,6 +189,7 @@ csArray<csString> MessageManagerBase::DecodeCommandArea(Client* client, csString
         }
     }
 
+	// Gets the name filter parameters, which is always the last one
     if(sector != NULL)
     {
         if(splitSize > 4)
@@ -201,10 +202,12 @@ csArray<csString> MessageManagerBase::DecodeCommandArea(Client* client, csString
         nameFilter = splitTarget[3];
     }
 
+	// Checks if the name filter is specified or "all is specified
     bool allNames = true;
     if(nameFilter.Length() && nameFilter != "all")
         allNames = false;
 
+	// Checks if the item to filter is a valid one, it has to be players|actors|items|npcs|entities
     int mode;
     if(itemName == "players")
         mode = 0;
@@ -223,7 +226,8 @@ csArray<csString> MessageManagerBase::DecodeCommandArea(Client* client, csString
         return result;
     }
 
-
+	// Is sector is specified, take all entities in the sector
+	// If not take all nearby entities
     csArray<gemObject*> nearlist;
     if(sector)
     {
@@ -236,12 +240,14 @@ csArray<csString> MessageManagerBase::DecodeCommandArea(Client* client, csString
 
         nearlist = psserver->entitymanager->GetGEM()->FindNearbyEntities(sector, pos, self->GetInstance(), range);
     }
-    size_t count = nearlist.GetSize();
-    csArray<csString*> results;
 
+	// Creates a regular expression based on the last paramter, example Tala* will find Talad.
     csRegExpMatcher nameMatcher(nameFilter);
 
-    for(size_t i=0; i<count; i++)
+	// For each of the entities found, get object name
+	size_t count = nearlist.GetSize();
+    csArray<csString*> results;
+	for(size_t i=0; i<count; i++)
     {
         gemObject* nearobj = nearlist[i];
         if(!nearobj)
