@@ -1556,11 +1556,14 @@ void gemItem::SendBehaviorMessage(const csString &msg_id, gemObject* actor)
                 evt.FireEvent();
             }
 
+			// send pick up text message to all clients
             psSystemMessage newmsg(clientnum, MSG_INFO_BASE, "%s picked up %s", actor->GetName(), qname.GetData());
             newmsg.Multicast(actor->GetMulticastClients(),0,RANGE_TO_SELECT);
 
+			// update inventory or other windows open
             psserver->GetCharManager()->UpdateItemViews(clientnum);
 
+			// remove the object from 3d world
             if(GetItemData())
             {
                 cel->RemoveItemEntity(this, origUID);

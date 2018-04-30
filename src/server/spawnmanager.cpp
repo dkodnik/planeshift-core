@@ -473,7 +473,8 @@ void SpawnManager::SpawnHuntLocations(Result &result, psSectorInfo* sectorinfo)
                 break;
         }
 
-        for(int i = 0; i < (amount - (int) handledSpawnsCount); ++i)  //Make desired amount of items that are not already existing
+		//Make desired amount of items that are not already existing
+        for(int i = 0; i < (amount - (int) handledSpawnsCount); ++i)
         {
             // This object won't get destroyed in a while (until something stops it or psItem is destroyed without moving)
             psScheduledItem* item = new psScheduledItem(id,itemid,pos,spawnsector,0,interval,max_rnd,range, lock_str, lock_skill, flags);

@@ -1429,6 +1429,7 @@ void psCharacter::DropItem(psItem* &item, csVector3 suggestedPos, const csVector
     if(guarded) //if we want to guard the item assign the guarding pid
         item->SetGuardingCharacterID(pid);
 
+	// create the 3d object
     gemObject* obj = EntityManager::GetSingleton().MoveItemToWorld(item,
                      location.worldInstance, location.loc_sector,
                      suggestedPos.x, suggestedPos.y, suggestedPos.z,

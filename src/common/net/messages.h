@@ -3990,7 +3990,7 @@ public:
     csVector3 posWorld;
     csVector3 rot;
     bool guarded;
-    bool inplace;
+    bool inplace; // drop at the character's position.
 };
 
 class psCmdDropMessage : public psMessageCracker

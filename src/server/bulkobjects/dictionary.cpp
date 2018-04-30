@@ -2917,10 +2917,11 @@ void NpcDialogMenu::ShowMenu(Client* client,csTicks delay, gemNPC* npc)
 
     for(size_t count=0; count < triggers.GetSize(); count++)
     {
-        // fetch the prerequisites
+        // Checks if quest is valid, check if quest is enabled server side (Active), check if we are not in testing mode
         if(triggers[count].quest && !triggers[count].quest->Active() && !IsTesting)
             continue;
 
+		// check if the player meets the prerequisites of the quest
         if(triggers[count].prerequisite && !IsTesting)
         {
             if(!triggers[count].prerequisite->Check(client->GetCharacterData()))

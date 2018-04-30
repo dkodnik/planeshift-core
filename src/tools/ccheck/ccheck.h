@@ -17,6 +17,10 @@
  *
  */
 
+/**
+ * This application checks for duplicate meshfact and texture inclusions in art files.
+ * Used while packaging a new update
+ */
 class CCheck
 {
 public:

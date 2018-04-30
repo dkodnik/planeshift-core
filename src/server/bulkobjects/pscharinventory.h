@@ -171,7 +171,20 @@ public:
      * @return true if the player has enough capacity for the requiredSpace.
      */
     bool HasEnoughUnusedSpace(float desiredSpace);
+
+	/**
+	 * Sums up all the items in inventory with GetItemSize()
+	 * to calculate the totale space currently used by your inventory items
+	 *
+	 * @return inventory size
+	 */
     int GetCurrentTotalSpace();
+
+	/**
+	 * Returns the max space in units this character can carry
+	 * calculated by mathscript + containers size
+	 * @return max space
+	 */
     int GetCurrentMaxSpace();
 
     /**

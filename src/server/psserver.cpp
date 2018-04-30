@@ -364,6 +364,7 @@ bool psServer::Initialize(iObjectRegistry* object_reg)
     // MathScript Engine
     mathscriptengine = new MathScriptEngine(db,"math_script");
 
+	// Initialize Cache Manager
     cachemanager = new CacheManager();
 
     //Loads the standard motd message from db
@@ -455,6 +456,7 @@ bool psServer::Initialize(iObjectRegistry* object_reg)
     // Init Bank Manager.
     bankmanager = new BankManager();
 
+	// Init User Manager
     usermanager = new UserManager(GetConnections(), cachemanager, bankmanager, entitymanager);
     Debug1(LOG_STARTUP,0,"Started User Manager");
 

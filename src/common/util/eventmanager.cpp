@@ -211,11 +211,13 @@ void EventManager::Run ()
         csTicks now = csGetTicks();
         int timeout = nextEvent - now;
 
+		// checks if we reached the time to execute the next event
+        // and consumes all the messages which are past due
         if (timeout > 0)
         {
             msg = queue->GetWait(timeout);
         }
-
+		// if there is a message to process, then process it
         if (msg)
         {
             csTicks start = csGetTicks();
@@ -233,6 +235,7 @@ void EventManager::Run ()
             // don't forget to release the packet
             msg = NULL;
         }
+		// if there are no messages, process events
         else if (now >= nextEvent)
         {
             nextEvent = ProcessEventQueue();

@@ -785,12 +785,14 @@ bool Exchange::RemoveItem(Client* fromClient, int fromSlot, int count)
     if(count == -1)
         count = invItem->exchangeStackCount;  // stack count of offer, not of item
 
+	// if I selected the maximum amount
     if(invItem->exchangeStackCount <= count)
     {
         invItem->exchangeStackCount = 0; // take out of offering array
         invItem->exchangeOfferSlot = -1;
         SendRemoveItemMessage(fromClient, fromSlot);
     }
+	// if I selected less items than max
     else
     {
         invItem->exchangeStackCount -= count;
@@ -1311,7 +1313,7 @@ bool PlayerToNPCExchange::HandleAccept(Client* client)
     {
         csString trigger;
 
-        // Check if NPC require the exact among of money
+        // Check if NPC require the exact amount of money
         starterChar.GetSimpleOffering(trigger,client->GetCharacterData(),true);
         if(!CheckXMLResponse(client,dlg,trigger))
         {
