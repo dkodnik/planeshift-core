@@ -5165,7 +5165,8 @@ void AdminManager::GetInfo(MsgEntry* me,psAdminCmdMessage &msg, AdminCmdData* cm
     float loc_x = 0.0f, loc_y = 0.0f, loc_z = 0.0f, loc_yrot = 0.0f;
     int degrees = 0;
 
-    if(data->targetObject)    //If the target is online or is an item or action location get some data about it like position and eid
+	//If the target is online or is an item or action location get some data about it like position and eid
+    if(data->targetObject)    
     {
         entityId = data->targetObject->GetEID();
         csVector3 pos;
@@ -5184,7 +5185,8 @@ void AdminManager::GetInfo(MsgEntry* me,psAdminCmdMessage &msg, AdminCmdData* cm
         regionName = (sector) ? sector->QueryObject()->GetObjectParent()->GetName() : "(null)";
     }
 
-    if(data->targetObject && data->targetObject->GetALPtr())  // Action location
+	// Action location
+    if(data->targetObject && data->targetObject->GetALPtr())  
     {
         gemActionLocation* item = dynamic_cast<gemActionLocation*>(data->targetObject);
         if(!item)
@@ -5213,7 +5215,8 @@ void AdminManager::GetInfo(MsgEntry* me,psAdminCmdMessage &msg, AdminCmdData* cm
         return;
     }
 
-    if(data->targetObject && data->targetObject->GetItem() && data->targetObject->GetItem()->GetBaseStats())    // Item
+	// Item
+    if(data->targetObject && data->targetObject->GetItem() && data->targetObject->GetItem()->GetBaseStats())    
     {
         psItem* item = data->targetObject->GetItem();
 

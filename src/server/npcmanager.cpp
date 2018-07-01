@@ -1062,6 +1062,7 @@ void NPCManager::HandleCommandList(MsgEntry* me,Client* client)
                 if(attacker && attacker->IsAlive())
                 {
                     gemActor* target = dynamic_cast<gemActor*>(gemSupervisor->FindObject(target_id));
+					// the target has been cleared, so stop the attack
                     if(!target)
                     {
                         attacker->SetTarget(target);
@@ -1201,7 +1202,7 @@ void NPCManager::HandleCommandList(MsgEntry* me,Client* client)
                     progScript = psserver->GetProgressionManager()->FindScript(scriptName.GetDataSafe());
                     if(!progScript)
                     {
-                        Error2("Faild to find script %s",scriptName.GetDataSafe());
+                        Error2("Failed to find script %s",scriptName.GetDataSafe());
                         break;
                     }
 
@@ -1845,7 +1846,7 @@ void NPCManager::HandleCommandList(MsgEntry* me,Client* client)
 
                 if(item.IsEmpty())
                 {
-                    Debug1(LOG_SUPERCLIENT, entity_id.Unbox(), "Transfere with empty item not possible.\n");
+                    Debug1(LOG_SUPERCLIENT, entity_id.Unbox(), "Transfer with empty item not possible.\n");
                     break;
                 }
 

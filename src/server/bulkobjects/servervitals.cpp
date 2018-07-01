@@ -123,6 +123,7 @@ bool psServerVitals::SendStatDRMessage(uint32_t clientnum, EID eid, unsigned int
     else
         group->Broadcast(msg.msg);
 
+	// reset statsDirty flag to zero
     statsDirty = backup;
     return true;
 }

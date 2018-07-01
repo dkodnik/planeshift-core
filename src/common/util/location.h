@@ -373,15 +373,21 @@ public:
      */
     Location* GetLocation(int index);
 
-    /** Find a region by name.
+    /** Find a region with a given name.
+     * This function handles the searching for the specified region name
+     * so that other functions can refer to the region directly.
      */
     LocationType* FindRegion(const char* regname);
 
-    /** Find a location type by name
+    /** Find a location with a given name.
+     * This function handles the searching for the specified location type
+     * so that other functions can refer to the location type directly.
      */
     LocationType* FindLocation(const char* typeName);
 
-    /** Find a location of a specfic location type by nam.
+    /**
+     * This function handles the searching for the specified object
+     * type and basically does the work for the \<locate\> script command.
      */
     Location* FindLocation(const char* typeName, const char* name);
 

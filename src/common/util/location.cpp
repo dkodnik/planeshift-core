@@ -620,7 +620,7 @@ bool LocationType::Load(iResultRow &row, iEngine* engine, iDataConnection* db)
     }
 
     // Load region with same master location type
-    Result rs2(db->Select("select loc.*,s.name as sector from sc_locations loc, sectors s where loc.loc_sector_id = s.id and type_id = %d and id_prev_loc_in_region > 0",id)); // Only load regions, locations has been loaded allready
+    Result rs2(db->Select("select loc.*,s.name as sector from sc_locations loc, sectors s where loc.loc_sector_id = s.id and type_id = %d and id_prev_loc_in_region > 0",id)); // Only load regions, locations has been loaded already
 
     csArray<Location*> tmpLocs;
 

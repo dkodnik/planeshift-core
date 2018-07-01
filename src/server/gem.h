@@ -194,6 +194,10 @@ public:
     void RemovePlayerFromLootables(PID playerID);
 
     void UpdateAllDR();
+
+	/**
+	 * Searches all actors in the game, and updates their vitals
+	 */
     void UpdateAllStats();
 
     void GetAllEntityPos(csArray<psAllEntityPosMessage> &msgs);
@@ -1556,7 +1560,10 @@ public:
      */
     bool LogLine(const char* szLine);
 
-
+	/**
+	 * Checks the vitals (hp, mana, ...) for the specific gemActor
+	 * If there are updates to publish, it then uses SendStatDRMessage to inform all actors client side
+	 */
     void UpdateStats();
     void ProcessStamina();
     void ProcessStamina(const csVector3 &velocity, bool force=false);
@@ -1650,8 +1657,13 @@ public:
     virtual void GetLastSuperclientPos(csVector3 &pos, InstanceID &instance, csTicks &last) const;
     virtual void SetLastSuperclientPos(const csVector3 &pos, InstanceID instance, const csTicks &now);
 
+	// Sends statDR to all clients that have this client targeted
     virtual void BroadcastTargetStatDR(ClientConnectionSet* clients);
+	
+	// Sends this actor statDR to the client specified, who has this actor as a target
     virtual void SendTargetStatDR(Client* client);
+
+	// Sends statDR to the client owning this actor, and to all clients that have this client targeted
     virtual void SendGroupStats();
 
     void SetAction(const char* anim,csTicks &timeDelay);

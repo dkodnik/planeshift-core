@@ -603,6 +603,7 @@ void WeatherManager::HandleWeatherEvent(psWeatherGameEvent* event)
         }
         case psWeatherMessage::DAYNIGHT:
         {
+			// Schedules a new event which will make the in-game time progress of 1 minute
             QueueNextEvent(GAME_MINUTE_IN_TICKS,
                            psWeatherMessage::DAYNIGHT,
                            0,

@@ -2531,6 +2531,7 @@ bool WorkManager::ValidateTarget(Client* client)
 
     if(target)
     {
+		// check if the target is an ActionLocation
         gemActionLocation* gemAction = target->GetALPtr();
         if(gemAction)
             target = gemAction->GetAction()->GetRealItem();

@@ -18,7 +18,7 @@
  */
 
 /* This file holds definitions for ALL global variables in the planeshift
- * server, normally you should move global variables into the psServer class
+ * client, normally you should move global variables into the psServer class
  */
 #ifndef __GLOBALS_H__
 #define __GLOBALS_H__

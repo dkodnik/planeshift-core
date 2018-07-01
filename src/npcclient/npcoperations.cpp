@@ -701,6 +701,7 @@ ScriptOperation::OperationResult MovementOperation::Run(NPC* npc, bool interrupt
         return OPERATION_FAILED;  // This operation is complete
     }
 
+	// did we reach the final destination?
     float distance = npcclient->GetWorld()->Distance2(myPos, mySector, endPos, endSector);
     if(distance < 0.5)
     {

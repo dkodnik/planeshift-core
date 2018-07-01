@@ -97,8 +97,8 @@ typedef uint32 InstanceID;
 
 #define IS_CONTAINER true
 
-#define GAME_MINUTE_IN_SECONDS 10 ///< Number of seconds for each game minute, 10sec real time for 1 minute game time
-#define GAME_MINUTE_IN_TICKS (GAME_MINUTE_IN_SECONDS*1000) ///< Number of ticks for each game minute, 10sec real time for 1 minute game time
+#define GAME_MINUTE_IN_SECONDS 10 ///< Number of seconds for each game minute, 10sec real time advances 1 minute in game time
+#define GAME_MINUTE_IN_TICKS (GAME_MINUTE_IN_SECONDS*1000) ///< Number of ticks for each game minute, 10sec real time advances 1 minute in game time
 
 /** @name Minimum guild requirements
  */

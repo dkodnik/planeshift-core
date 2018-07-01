@@ -621,6 +621,7 @@ bool psServer::Initialize(iObjectRegistry* object_reg)
         Debug1(LOG_STARTUP,0,"Server status reporter initialized.");
     }
 
+	// Loads the date and time from database and publishes to all clients
     weathermanager->StartGameTime();
     return true;
 }

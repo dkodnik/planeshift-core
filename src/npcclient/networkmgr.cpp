@@ -1114,7 +1114,7 @@ void NetworkManager::HandlePerceptions(MsgEntry* msg)
                 gemNPCObject* target = npcclient->FindEntityID(targetEID);
                 if(!target)
                 {
-                    NPCDebug(npc, 5, "Got access perception from unknown target(%s)!\n", ShowID(targetEID));
+                    NPCDebug(npc, 5, "Got assess perception from unknown target(%s)!\n", ShowID(targetEID));
                     break;
                 }
 

@@ -309,6 +309,7 @@ bool psNPCClient::Initialize(iObjectRegistry* object_reg,const char* _host, cons
     // Starts the logon process
     network->Authenticate(host,port,user,pass);
 
+	// periodically writes a log file with online/offline status of NPCClient to be read by websites
     NPCStatus::Initialize(objreg);
 
     return true;
@@ -638,6 +639,7 @@ void psNPCClient::Add(gemNPCObject* object)
 
 void psNPCClient::Remove(gemNPCObject* object)
 {
+	// checks if it's a gemNPCActor
     NPC* npc = object->GetNPC();
     if(npc)
     {
@@ -658,6 +660,7 @@ void psNPCClient::Remove(gemNPCObject* object)
         all_gem_objects_by_pid.DeleteAll(object->GetPID());
     }
 
+	// check if the entity is an Item
     gemNPCItem* item = dynamic_cast<gemNPCItem*>(object);
     if(item)
     {
@@ -695,6 +698,7 @@ void psNPCClient::Remove(gemNPCObject* object)
 
     }
 
+	// check if the entity is a Character
     gemNPCActor* actor = dynamic_cast<gemNPCActor*>(object);
     if(actor)
     {
@@ -1169,7 +1173,7 @@ void psNPCClient::TriggerEvent(Perception* pcpt, float maxRange,
 {
     bool foundUser = false;
 
-    // Only trigger NPCs that have this percpetion type registered as a reaction.
+    // Only trigger NPCs that have this perception type registered as a reaction.
     csHash<NPC*,csString>::Iterator iter(allReactions.GetIterator(pcpt->GetName()));
     while(iter.HasNext())
     {
@@ -1436,7 +1440,7 @@ void psNPCClient::EnableDisableNPCs(const char* pattern, bool enable)
     }
     else
     {
-        // Mach by pattern
+        // Match by pattern
 
         for(size_t i=0; i<npcs.GetSize(); i++)
         {

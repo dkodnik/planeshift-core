@@ -17,9 +17,6 @@
 *
 */
 
-/* This file holds definitions for ALL global variables in the planeshift
-* server, normally you should move global variables into the psServer class
-*/
 #ifndef __PERCEPTIONS_H__
 #define __PERCEPTIONS_H__
 

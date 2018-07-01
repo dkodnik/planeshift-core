@@ -1031,7 +1031,7 @@ bool Behavior::Load(iDocumentNode* node)
     }
 
     // TODO: Remove this check when all servers has been updated.
-    // This field of the behavior is now depricated.
+    // This field of the behavior is now deprecated.
     csString tmp            = node->GetAttributeValue("auto_memorize");
     if(tmp.Length())
     {
