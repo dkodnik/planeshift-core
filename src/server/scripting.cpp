@@ -2069,7 +2069,7 @@ public:
     virtual void Run(MathEnvironment* env)
     {
         gemObject* target = GetObject(env, targetVar);
-        gemObject* source = target;
+        gemObject* source = target; // we consider the source = target in case source is not specified
         float scale = 0.0f;
         if(!sourceVar.IsEmpty())
             source = GetObject(env, sourceVar);
@@ -2081,6 +2081,7 @@ public:
 
         if(attached)
         {
+			// Send effect message to client
             psEffectMessage fx(0, name, csVector3(0,0,0), source->GetEID(), target->GetEID(), 0, scale);
             if(!fx.valid)
             {
@@ -2099,7 +2100,7 @@ public:
             pos.x -= DROP_DISTANCE*  sinf(yrot);
             pos.z -= DROP_DISTANCE*  cosf(yrot);
 
-            // Send effect message
+            // Send effect message to client
             psEffectMessage fx(0, name, pos, 0, 0, 0, scale);
             if(!fx.valid)
             {

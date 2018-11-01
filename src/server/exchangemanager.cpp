@@ -904,9 +904,11 @@ bool PlayerToPlayerExchange::AddItem(Client* fromClient, INVENTORY_SLOT_NUMBER f
 
 void PlayerToPlayerExchange::SendAddItemMessage(Client* fromClient, int slot, psCharacterInventory::psCharacterInventoryItem* invItem)
 {
+	// sends the message to the player
     Exchange::SendAddItemMessage(fromClient, slot, invItem);
     psItem* item = invItem->GetItem();
 
+	// sends the message to the OTHER player part of the trade
     Client* toClient = GetOtherClient(fromClient);
 
     psExchangeAddItemMsg msg(toClient->GetClientNum(), item->GetName(),
@@ -918,8 +920,10 @@ void PlayerToPlayerExchange::SendAddItemMessage(Client* fromClient, int slot, ps
 
 void PlayerToPlayerExchange::SendRemoveItemMessage(Client* fromClient, int slot)
 {
+	// sends the message to the player
     Exchange::SendRemoveItemMessage(fromClient, slot);
 
+	// sends the message to the OTHER player part of the trade
     Client* toClient = GetOtherClient(fromClient);
 
     psExchangeRemoveItemMsg msg(toClient->GetClientNum(), CONTAINER_EXCHANGE_RECEIVING, slot, 0);

@@ -2963,6 +2963,7 @@ public:
                    VIEWBANK
                  };
 
+	// Used to display information in the bankwindow with psGUIBankingMessage::VIEWBANK
     psGUIBankingMessage(uint32_t clientNum,
                         uint8_t command,
                         bool guild,
@@ -2981,6 +2982,7 @@ public:
                         float exchangeFee,
                         bool forceOpen);
 
+	// Used to withdraw or deposit with psGUIBankingMessage::WITHDRAWFUNDS or psGUIBankingMessage::DEPOSITFUNDS
     psGUIBankingMessage(uint8_t command,
                         bool guild,
                         int circles,
@@ -2988,6 +2990,7 @@ public:
                         int hexas,
                         int trias);
 
+	// Used to exchange coins with psGUIBankingMessage::EXCHANGECOINS
     psGUIBankingMessage(uint8_t command,
                         bool guild,
                         int coins,

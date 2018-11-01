@@ -1811,6 +1811,8 @@ protected:
     ///< should prevent normal HP calculations from taking place
 
     static const char* characterTypeName[];
+
+	// see enum PSCHARACTER_TYPE for list of types
     unsigned int characterType;
 
     /// Array of items waiting to be looted.
