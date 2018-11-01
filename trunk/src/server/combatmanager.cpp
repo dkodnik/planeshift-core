@@ -203,6 +203,7 @@ bool CombatManager::AttackSomeone(gemActor* attacker,gemActor* target,const Stan
     bool startedAttacking=false;
     bool haveWeapon=false;
 
+	// Cycle through all the equipped slots to see if any can issue an attack
     for(int slot=0; slot<PSCHARACTER_SLOT_BULK1; slot++)
     {
         // See if this slot is able to attack

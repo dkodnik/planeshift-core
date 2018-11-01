@@ -4593,7 +4593,7 @@ ScriptOperation::OperationResult RotateOperation::Run(NPC* npc, bool interrupted
 
         target_angle = psGameObject::CalculateIncidentAngle(pos,dest);
 
-        NPCDebug(npc, 5, "Rotate to located destinaion of %.2f deg",target_angle*180.0f/PI);
+        NPCDebug(npc, 5, "Rotate to located destination of %.2f deg",target_angle*180.0f/PI);
 
         if(pos == dest && sector == dest_sector && (fabs(rot-target_angle)<PI/30.0))
         {

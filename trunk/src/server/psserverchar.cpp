@@ -452,6 +452,7 @@ bool ServerCharManager::SendInventory(uint32_t clientNum, bool sendUpdatesOnly)
         msgsize += strlen(item->GetName()) + 1 + sizeof(uint32_t) * 5 + sizeof(float) * 2 + strlen(item->GetImageName()) + 1 + sizeof(uint8_t);
     }
 
+	// Subtracts the money you are offering in an exchange from the update of your inventory view
     psMoney m = chardata->Money();
     Exchange* exchange = exchanging ? psserver->exchangemanager->GetExchange(client->GetExchangeID()) : NULL;
     if(exchange)
