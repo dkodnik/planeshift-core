@@ -3277,6 +3277,7 @@ bool psItem::SendContainerContents(Client* client, int containerID)
                                         GetImageName(),
                                         0);
 
+	// if the container is a physical object on the ground, then use the item ID, if not then the containerID = slotID passed in as parameter
     if(gItem != NULL)
         outgoing.containerID = gItem->GetEID().Unbox();
     else
