@@ -102,6 +102,7 @@ protected:
     void HandleSetGuildNotifications(Client* client,iDocumentNode* root);
     ///Sets the status of alliance notifications when an alliance member logins/logsout
     void HandleSetAllianceNotifications(Client* client,iDocumentNode* root);
+	///Sets the permission of specific level and priviledge (example: Initiate, View Chat, yes)
     void HandleSetLevelRight(Client* client,iDocumentNode* root);
     void HandleRemoveMember(Client* client,iDocumentNode* root);
     void HandleSetMemberLevel(Client* client,iDocumentNode* root);

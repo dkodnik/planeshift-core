@@ -4818,6 +4818,10 @@ public:
     csString newObjName;
 };
 
+/*
+ * Used to send the information to the clients that a player or multiple players have changed their guild
+ * The client will then update the second line of text (containing the guild's name) above the player's head.
+ */ 
 class psUpdatePlayerGuildMessage : public psMessageCracker
 {
 public:

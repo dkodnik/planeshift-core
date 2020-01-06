@@ -470,6 +470,7 @@ void GuildManager::HandleSubscribeGuildData(Client* client,iDocumentNode* root)
 {
     int clientnum = client->GetClientNum();
 
+	// check if you are in a guild
     psGuildInfo* guild = client->GetCharacterData()->GetGuild();
     if(guild == NULL)
     {
@@ -487,6 +488,7 @@ void GuildManager::HandleSubscribeGuildData(Client* client,iDocumentNode* root)
         new GuildNotifySubscription(guild->GetID(), client->GetClientNum(), RetrieveOnlineOnly(root));
     notifySubscr.Push(subscr);
 
+	// sends all guild information to the client
     SendGuildData(client);
     SendLevelData(client);
     SendMemberData(client, subscr->onlineOnly);
@@ -940,10 +942,12 @@ void GuildManager::SendMemberData(Client* client,bool onlineOnly)
     psSectorInfo* sector = NULL;
     csString open;
 
+	// check if player is in a guild
     psGuildInfo* guild = client->GetCharacterData()->GetGuild();
     if(guild == NULL)
         return;
 
+	// check if levels are defined
     psGuildLevel* level = client->GetCharacterData()->GetGuildLevel();
     if(level == NULL)
         return;
