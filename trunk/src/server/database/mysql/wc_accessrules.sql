@@ -22,6 +22,14 @@ CREATE TABLE `wc_accessrules` (
 -- 33=as above plus can see spells (rules profile III)
 -- 34=as *31* plus can see quests (setting profile II)
 
+-- 35-39 as the ones from 30-34 but with EDIT access
+
+-- 40-44 as the ones from 30-34 but with CREATE access
+
+-- 45 (full member profile) all with CREATE access, including setting and rules.
+
+-- 50 (admin access) ALL access with DELETE
+
 -- access: 1=read, 2=edit, 3=create, 4=delete
 
 LOCK TABLES `wc_accessrules` WRITE;
@@ -44,6 +52,7 @@ INSERT INTO wc_accessrules values (320,41,'npcs',3),(321,41,'quests',0),(322,41,
 INSERT INTO wc_accessrules values (340,42,'npcs',3),(341,42,'quests',0),(342,42,'items',3),(343,42,'als',3),(344,42,'natres',3),(345,42,'crafting',3),(346,42,'spells',0),(347,42,'other',3),(348,42,'statistics',3),(349,42,'assets',3),(350,42,'admin',3);
 INSERT INTO wc_accessrules values (360,43,'npcs',3),(361,43,'quests',0),(362,43,'items',3),(363,43,'als',3),(364,43,'natres',3),(365,43,'crafting',3),(366,43,'spells',3),(367,43,'other',3),(368,43,'statistics',3),(369,43,'assets',3),(370,43,'admin',3);
 INSERT INTO wc_accessrules values (380,44,'npcs',3),(381,44,'quests',3),(382,44,'items',3),(383,44,'als',3),(384,44,'natres',3),(385,44,'crafting',0),(386,44,'spells',0),(387,44,'other',3),(388,44,'statistics',3),(389,44,'assets',3),(390,44,'admin',3);
+INSERT INTO wc_accessrules values (400,45,'npcs',3),(401,45,'quests',3),(402,45,'items',3),(403,45,'als',3),(404,45,'natres',3),(405,45,'crafting',3),(406,45,'spells',3),(407,45,'other',3),(408,45,'statistics',3),(409,45,'assets',3),(410,45,'admin',3);
 
 /*!40000 ALTER TABLE `wc_accessrules` ENABLE KEYS */;
 
