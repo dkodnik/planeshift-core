@@ -3372,6 +3372,7 @@ ScriptOperation::OperationResult MeleeOperation::Advance(float timedelta, NPC* n
     bool outsideRegion = psGameObject::ReplaceNPCVariablesBool(npc, attackOutsideRegion);
     bool tribe = psGameObject::ReplaceNPCVariablesBool(npc, attackMostHatedTribeTarget);
 
+	// search enemy in melee_range
     if(tribe && npc->GetTribe())
     {
         ent = npc->GetTribe()->GetMostHated(npc, melee_range, outsideRegion, attackInvisible, attackInvincible);
@@ -3381,6 +3382,7 @@ ScriptOperation::OperationResult MeleeOperation::Advance(float timedelta, NPC* n
         ent = npc->GetMostHated(melee_range, outsideRegion, attackInvisible, attackInvincible);
     }
 
+	// search enemy in seek_range
     if(!ent)
     {
         NPCDebug(npc, 8, "No Melee target in range (%2.2f), going to chase!", melee_range);
@@ -3820,7 +3822,7 @@ bool MoveToOperation::Load(iDocumentNode* node)
                     Error2("Invalid argument passed to operation in xml file: %s", value);
                     return false;
                 }
-                memoryCheck == split[2];
+                memoryCheck = split[2];
                 return true;
             }
             else

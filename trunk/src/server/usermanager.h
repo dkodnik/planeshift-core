@@ -599,7 +599,7 @@ protected:
     void HandleTargetEvent(MsgEntry* me,Client* client);
 
     /**
-     *
+     * Called when the player clicks on "Enter" from an action location Interact Menu
      */
     void HandleEntranceMessage(MsgEntry* me, Client* client);
 

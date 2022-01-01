@@ -181,6 +181,8 @@ void ActionManager::HandleQueryMessage(csString xml, Client* client)
             handled = HandleSelectQuery(topNode, client);
         }
 
+		// If our query didnt find any action locations in database, send the info anyway to the client so 
+		// it can create a new one (must be GM and have GM window open), see ActionHandler::HandleMessage() client side
         if(!handled)
         {
             // evk: Sending to clients with security level 30+ only.
@@ -549,6 +551,7 @@ void ActionManager::HandleSaveMessage(csString xml, Client* client)
             }
         }
 
+		// send back to the client the updated list of action locations for this sector
         csString xmlMsg;
         csString escpxml = EscpXML(sectorName);
         xmlMsg.Format("<location><sector>%s</sector></location>", escpxml.GetData());
@@ -569,7 +572,7 @@ void ActionManager::HandleDeleteMessage(csString xml, Client* client)
         return;
     }
 
-    // Search for matching locations
+    // Search for matching location by ID
     csRef<iDocument>     doc;
     csRef<iDocumentNode> root, topNode, node;
 
@@ -611,6 +614,7 @@ void ActionManager::HandleDeleteMessage(csString xml, Client* client)
             delete actionLocation;
         }
 
+		// send back to the client the updated list of action locations for this sector
         csString xmlMsg;
         csString escpxml = EscpXML(sectorName);
         xmlMsg.Format("<location><sector>%s</sector></location>", escpxml.GetData());

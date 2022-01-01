@@ -3885,7 +3885,7 @@ AdminCmdDataQuest::AdminCmdDataQuest(AdminManager* msgManager, MsgEntry* me, psA
         // gets a list of quests of the target
         if(words.GetCount() == index)
         {
-            subCmd == "list";
+            subCmd = "list";
         }
         // check for other subcommands
         else if(subCommandList.IsSubCommand(words[index]))
