@@ -1241,9 +1241,11 @@ void UserManager::NotifyBuddies(Client* client, bool logged_in)
             if(client->GetBuddyListHide() && buddy->GetSecurityLevel() < GM_LEVEL)  // Don't tell none GM+ that a GM+ came online
                 continue;
 
+			// send to the client UI the information of buddy status
             psBuddyStatus status(buddy->GetClientNum(),  name , logged_in);
             status.SendMessage();
 
+			// send also text message
             if(logged_in)
             {
                 psserver->SendSystemInfo(buddy->GetClientNum(),"%s just joined PlaneShift",name.GetData());
@@ -1269,9 +1271,11 @@ void UserManager::NotifyPlayerBuddies(Client* client, bool logged_in)
             if(buddy->GetSecurityLevel() >= GM_LEVEL)  // Don't tell GM+ as they already know
                 continue;
 
+			// send to the client UI the information of buddy status
             psBuddyStatus status(buddy->GetClientNum(),  name , logged_in);
             status.SendMessage();
 
+			// send also text message
             if(logged_in)
             {
                 psserver->SendSystemInfo(buddy->GetClientNum(),"%s just joined PlaneShift",name.GetData());
@@ -2361,6 +2365,7 @@ void UserManager::HandleMount(psUserCmdMessage &msg, Client* client)
         return;
     }
 
+	// check if the second parameters is an EID
     csString eid_str = msg.target.Slice(4);
     EID targetEID = EID(strtoul(eid_str.GetDataSafe(), NULL, 10));
 

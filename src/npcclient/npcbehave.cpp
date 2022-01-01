@@ -652,7 +652,7 @@ Behavior* BehaviorSet::Schedule(NPC* npc)
 
 void BehaviorSet::Advance(csTicks delta, NPC* npc)
 {
-    float d = .001 * delta;
+    float d = .001 * delta; // transforms milliseconds in seconds
 
     UpdateNeeds(d, npc);
 

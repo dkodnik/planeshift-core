@@ -157,7 +157,7 @@ public:
     /**
      * Check if there is an active action location for this client/actionLocation pair.
      *
-     * @param actorEID       The EID of the actor to remove from the given action location.
+     * @param actorEID       The EID of the actor to check for active action location.
      * @param actionLocation The location that is triggered for the given actor.
      */
     bool HasActiveTrigger(EID actorEID, const psActionLocation* actionLocation);
@@ -165,7 +165,7 @@ public:
     /**
      * Add a new active actionLocation for this client.
      *
-     * @param actorEID       The EID of the actor to remove from the given action location.
+     * @param actorEID       The EID of the actor to add the given action location.
      * @param actionLocation The location that is triggered for the given actor.
      */
     void AddActiveTrigger(EID actorEID, const psActionLocation* actionLocation);
@@ -201,29 +201,49 @@ protected:
     // Message Handlers
 
     /**
-     * Handles Query messages from client.
+     * Handles Query messages from client (QUERY).
      *
      * @param xml xml containing query parameters.
+     * Example:
+     * 
+     * 
      * @param client      The client that sent the message.
      */
     void HandleQueryMessage(csString xml, Client* client);
 
     void LoadXML(iDocumentNode* topNode);
+
+	// Find the best action location matching the input parameters like: sector, mesh , poly , point w/in radius , instance
     bool HandleSelectQuery(iDocumentNode* topNode, Client* client);
+
+	// Launch Examine UI client side or execute script for identified Action Locations
     bool ProcessMatches(csArray<psActionLocation*> matches, Client* client);
 
     /**
      * Handles Save messages from client.
      *
      * @param xml         xml containing query parameters.
+     * Example:
+     * <location><id>167</id><masterid>0</masterid><name>torch2</name><sector>hydlaa_plaza</sector>
+     * <mesh>_s_laanx_fireplaces</mesh><polygon>0</polygon><position><x>-6.170000</x><y>1.150000</y><z>-54.880001</z></position>
+     * <pos_instance>4294967295</pos_instance><radius>1.000000</radius><triggertype>PROXIMITY</triggertype><responsetype>SCRIPT</responsetype>
+     * <response>flame_damage</response><active>Y</active></location>
+     * 
      * @param client      The client that sent the message.
      */
     void HandleSaveMessage(csString xml, Client* client);
 
     /**
-     * Handles List messages from client.
+     * Handles List messages from client (LIST_QUERY)
      *
-     * @param xml         xml containing query parameters.
+     * @param xml         xml containing sector name for which we want the list of all action locations.
+     * Example:
+	 * <location><sector>hydlaa_plaza</sector></location>
+	 * 
+	 * As a response it will then send to the client an XML with the following format:
+     * <locations><location>...</location><location>...</location></locations>
+     * see HandleSaveMessage() desc for content of <location>
+     * 
      * @param client      The client that sent the message.
      */
     void HandleListMessage(csString xml, Client* client);
@@ -232,6 +252,9 @@ protected:
      * Handles Delete messages from client.
      *
      * @param xml         xml containing query parameters.
+     * Example:
+     * <location><id>5030</id></location>
+     * 
      * @param client      The client that sent the message.
      */
     void HandleDeleteMessage(csString xml, Client* client);

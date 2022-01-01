@@ -3893,7 +3893,7 @@ void gemActor::ApplyStaminaCalculations(const csVector3 &v, float times)
     }
     else // Moving
     {
-        // unwork stuff
+        // If we are moving, we stop any crafting
         if(GetMode() == PSCHARACTER_MODE_WORK)
         {
             SetMode(PSCHARACTER_MODE_PEACE);
