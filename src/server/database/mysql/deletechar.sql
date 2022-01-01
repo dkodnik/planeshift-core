@@ -4,10 +4,15 @@
 # The tables populated by a char are:
 #
 # characters
+# character_discoveries
+# character_events
+# character_factions
 # character_glyphs
 # character_quests
+# character_relationships
 # character_skills
 # character_traits
+# character_variables
 # item_instances
 # player_spells
 # 
@@ -35,10 +40,16 @@ delete from characters where id>=@player_id_min and id<=@player_id_max;
 
 # perform deletion for one char only
 set @player_id=9242522;
-delete from player_spells where player_id=@player_id;
-delete from item_instances where char_id_owner=@player_id;
-delete from character_traits where character_id=@player_id;
-delete from character_skills where character_id=@player_id;
-delete from character_quests where player_id=@player_id;
+delete from character_discoveries where character_id=@player_id;
+delete from character_events where player_id=@player_id;
+delete from character_factions where character_id=@player_id;
 delete from character_glyphs where player_id=@player_id;
+delete from character_quests where player_id=@player_id;
+delete from character_relationships where character_id=@player_id;
+delete from character_skills where character_id=@player_id;
+delete from character_traits where character_id=@player_id;
+delete from character_variables where character_id=@player_id;
+delete from item_instances where char_id_owner=@player_id;
+delete from player_spells where player_id=@player_id;
+
 delete from characters where id=@player_id;
