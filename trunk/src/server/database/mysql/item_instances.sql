@@ -151,6 +151,7 @@ INSERT INTO `item_instances` VALUES (91,7,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,50,-1,2,
 # Key and lock for entrance
 INSERT INTO `item_instances` VALUES (95,0,0,0,0,1,0,0,0,3,-56,-1,-148,0,0,0,0,50,50,420,0,'LOCKED,SECURITYLOCK,UNPICKABLE',0,-1,'','','',NULL,'0',0,0,0);
 INSERT INTO `item_instances` VALUES (96,0,0,0,0,1,0,0,0,3,-54,1,-148,0,0,0,0,50,50,413,0,'KEY',0,-1,'95','','',NULL,'0',0,0,0);
+INSERT INTO `item_instances` VALUES (97,0,0,0,0,1,0,0,0,3,-56,-1,-148,0,0,0,0,50,50,420,0,'LOCKED,LOCKABLE',0,-1,'','','',NULL,'0',0,0,0);
 
 # Items on ground
 INSERT INTO `item_instances` VALUES (100,0,0,0,0,1,0,0,0,3,-2.72,0.37,-182.03,0,90,0,0,50,50,74,0,'NOPICKUP',0,-1,'','','',NULL,'0',0,0,0);
